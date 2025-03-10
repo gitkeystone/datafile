@@ -1,5 +1,5 @@
 // Package datafile allows reading data samples from files.
-package main
+package datafile
 
 import (
 	"bufio"
