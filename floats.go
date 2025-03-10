@@ -24,6 +24,7 @@ func GetFloats(fileName string) ([3]float64, error) {
 		}
 		i++
 	}
+	
 	err = file.Close()
 	if err != nil {
 		return numbers, err
