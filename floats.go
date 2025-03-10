@@ -28,6 +28,7 @@ func GetFloats(fileName string) ([3]float64, error) {
 	if err != nil {
 		return numbers, err
 	}
+	
 	if scanner.Err() != nil {
 		return numbers, scanner.Err()
 	}
