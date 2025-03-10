@@ -19,7 +19,7 @@ func GetFloats(fileName string) ([3]float64, error) {
 	for scanner.Scan() {
 		numbers[i], err = strconv.ParseFloat(scanner.Text(), 64)
 		if err != nil {
-			return numbers, error
+			return numbers, err
 		}
 		i++
 	}
