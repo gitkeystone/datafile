@@ -4,12 +4,11 @@ package datafile
 import (
 	"bufio"
 	"os"
-	"strconv"
 )
 
-// GetFloats reads a float64 from each line of a file.
-func GetFloats(fileName string) ([]float64, error) {
-	var numbers []float64
+// GetStrings reads a string from each line of a file.
+func GetStrings(fileName string) ([]string, error) {
+	var lines []string
 	file, err := os.Open(fileName)
 	if err != nil {
 		return nil, err
@@ -17,11 +16,8 @@ func GetFloats(fileName string) ([]float64, error) {
 	scanner := bufio.NewScanner(file)
 
 	for scanner.Scan() {
-		number, err := strconv.ParseFloat(scanner.Text(), 64)
-		if err != nil {
-			return nil, err
-		}
-        numbers = append(numbers, number)
+        line := scanner.Text()
+        lines = append(lines, line)
 	}
 
 	err = file.Close()
@@ -32,5 +28,5 @@ func GetFloats(fileName string) ([]float64, error) {
 	if scanner.Err() != nil {
 		return nil, scanner.Err()
 	}
-	return numbers, nil
+	return lines, nil
 }
